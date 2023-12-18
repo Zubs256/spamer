@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+} from 'react';
 
-import { useRouter } from "next/navigation.js";
-
-import { API } from "@/lib/api";
+import { useRouter } from 'next/navigation.js';
 
 // Define the EditPost component
 export default function EditPost({ post, isEditing, setIsEditing }) {
@@ -24,7 +25,7 @@ export default function EditPost({ post, isEditing, setIsEditing }) {
     setIsEditing(false);
     try {
       // Send a PUT request to update the post
-      const response = await fetch(`${API}/api/posts/${post.id}`, {
+      const response = await fetch(`/api/posts/${post.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

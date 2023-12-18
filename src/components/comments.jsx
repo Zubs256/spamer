@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useState,
+} from 'react';
 
-import { API } from "@/lib/api";
-
-import { Comment } from "./Comment";
+import { Comment } from './Comment';
 
 export default function Comments({ post, isCommenting, setIsCommenting }) {
   const [comments, setComments] = useState([]);
@@ -14,7 +15,7 @@ export default function Comments({ post, isCommenting, setIsCommenting }) {
 
   const fetchComments = async (id) => {
     try {
-      const res = await fetch(`${API}/api/posts/${id}/comments`, {
+      const res = await fetch(`/api/posts/${id}/comments`, {
         cache: "no-store",
       });
 
@@ -39,7 +40,7 @@ export default function Comments({ post, isCommenting, setIsCommenting }) {
   }
   const handleSaveComment = async () => {
     setIsCommenting(false);
-    await fetch(`${API}/api/posts/${post.id}/comments`, {
+    await fetch(`/api/posts/${post.id}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +67,7 @@ export default function Comments({ post, isCommenting, setIsCommenting }) {
             <button onClick={handleSaveComment}>Comment</button>
             <button onClick={() => setIsCommenting(false)}>Cancel</button>
           </div>
-        </div> 
+        </div>
       )}
       {comments.map((comment) => (
         <Comment key={comment.id} comment={comment} />

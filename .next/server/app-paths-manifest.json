@@ -1,3 +1,7 @@
 {
-  "/api/posts/route": "app/api/posts/route.js"
+  "/page": "app/page.js",
+  "/api/posts/[postid]/likes/route": "app/api/posts/[postid]/likes/route.js",
+  "/api/posts/[postid]/route": "app/api/posts/[postid]/route.js",
+  "/api/posts/[postid]/comments/route": "app/api/posts/[postid]/comments/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

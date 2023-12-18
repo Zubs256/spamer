@@ -1,10 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useRouter } from "next/navigation.js";
-import toast from "react-hot-toast";
-
-import { API } from "@/lib/api";
+import { useRouter } from 'next/navigation.js';
+import toast from 'react-hot-toast';
 
 export default function NewPost() {
   const [postText, setPostText] = useState("");
@@ -12,7 +10,7 @@ export default function NewPost() {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    const response = await fetch(`${API}/api/posts`, {
+    const response = await fetch(`/api/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,6 +40,8 @@ export default function NewPost() {
         value={postText}
         placeholder="Say something, let the world know."
         onChange={handleInputChanges}
+        required
+        title="Please enter a post"
       />
       <button type="submit" id="create-post-button">
         Submit Post
